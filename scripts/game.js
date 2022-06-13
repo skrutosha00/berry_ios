@@ -138,7 +138,7 @@ function play() {
     let timeLeft = 60
 
     let gameInterval = setInterval(() => {
-        timeLeft -= 10
+        timeLeft -= 1
         document.querySelector('.time').innerHTML = timeLeft
 
         if (!timeLeft) {
