@@ -1,0 +1,115 @@
+body {
+  font-weight: 800;
+}
+
+.shop,
+.balance_field,
+.level_cont,
+.volume_cont {
+  z-index: 5;
+}
+
+.shop {
+  position: absolute;
+  right: 3%;
+  top: 3%;
+
+  width: 15%;
+  height: 8%;
+  max-height: 75px;
+
+  font-size: 2vw;
+
+  background-color: #232323;
+  border: solid 7px #eeda00;
+  border-radius: 50px;
+}
+
+.balance_field {
+  left: 3%;
+  bottom: 3%;
+
+  border-radius: 50px;
+}
+
+.avatar_pic {
+  position: absolute;
+  left: 3%;
+  top: 10%;
+  z-index: 2;
+
+  max-height: 80%;
+}
+
+.level_cont {
+  position: absolute;
+  top: 40%;
+  right: 3%;
+  transform: translate(0, -50%);
+
+  display: flex;
+  justify-content: space-between;
+
+  width: 50%;
+}
+
+.level {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 70px;
+  width: 70px;
+
+  font-size: 3vw;
+
+  background-color: #232323;
+  border: solid 7px #eeda00;
+  border-radius: 12px;
+}
+
+.enemy1 {
+  position: absolute;
+  right: 28%;
+  bottom: 0;
+  z-index: -1;
+
+  max-width: 15%;
+}
+
+.enemy2 {
+  position: absolute;
+  right: 10%;
+  bottom: 0;
+  z-index: -1;
+
+  max-width: 15%;
+}
+
+.volume_cont {
+  left: 28%;
+  bottom: 2%;
+}
+
+@media screen and (min-height: 400px) {
+  .avatar {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media screen and (min-height: 768px) {
+  .avatar {
+    width: 250px;
+    height: 250px;
+  }
+
+  .avatar img {
+    height: 300px;
+  }
+
+  .enemy1 {
+    height: 250px;
+    top: 30%;
+  }
+}

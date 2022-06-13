@@ -1,0 +1,35 @@
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 80%;
+  height: 80%;
+  transform: translate(-50%, -50%);
+
+  overflow: scroll;
+  background-color: #232323;
+  border: solid 10px #eeda00;
+  border-radius: 12px;
+  padding: 20px;
+
+  font-size: 2vw;
+}
+
+.button {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  z-index: 3;
+
+  width: 40%;
+  height: 10%;
+  transform: translate(-50%, 0);
+
+  font-size: 3vw;
+  font-weight: 800;
+
+  background-color: #232323;
+  border: solid 8px #eeda00;
+  border-radius: 12px;
+}

@@ -1,0 +1,116 @@
+body {
+  font-weight: 800;
+}
+
+.main {
+  position: absolute;
+  left: 5%;
+  top: 5%;
+
+  width: 90%;
+  height: 70%;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+
+  background-color: #232323;
+  border: solid 10px #eeda00;
+}
+
+.shop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 90%;
+}
+
+.item {
+  width: 19%;
+  font-size: 2.2vw;
+}
+
+.pic {
+  height: 120px;
+  width: 100%;
+  border-radius: 20px;
+
+  background-color: #eeda00;
+  transition: color 0.5s ease;
+}
+
+.pic img {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.chosen {
+  background-color: #fff8a8;
+}
+
+.button {
+  width: 90%;
+  height: 10%;
+
+  margin: 10% auto auto;
+  background-color: #232323;
+  border: solid 4px #eeda00;
+  border-radius: 50px;
+}
+
+.avatar {
+  position: absolute;
+  bottom: 3%;
+  left: 3%;
+
+  width: 120px;
+  height: 120px;
+}
+
+.balance.anim {
+  color: red;
+}
+
+.back {
+  width: 25%;
+  height: 10%;
+  font-size: 2vw;
+
+  background-color: #232323;
+  border: solid 4px #eeda00;
+  border-radius: 50px;
+}
+
+.balance_field {
+  position: absolute;
+  left: auto;
+  right: 3%;
+  bottom: 3%;
+
+  border-radius: 50px;
+}
+
+.volume_cont {
+  right: 25%;
+  bottom: 3%;
+}
+
+@media screen and (min-height: 400px) {
+  .avatar {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media screen and (min-height: 768px) {
+  .avatar {
+    width: 250px;
+    height: 250px;
+  }
+
+  .balance_field {
+    width: 26%;
+  }
+}
