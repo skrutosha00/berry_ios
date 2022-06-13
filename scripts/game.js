@@ -96,7 +96,7 @@ function getEnemy() {
     wrapper.append(enemy)
 
     enemy.style.left = -enemy.offsetWidth + 'px'
-    enemy.style.top = randInt(30, 55) + '%'
+    enemy.style.top = randInt(35, 55) + '%'
 
     let enemyHealth = level + 2
     let distance = 0

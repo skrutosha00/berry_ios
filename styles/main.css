@@ -91,25 +91,34 @@ body {
   bottom: 2%;
 }
 
-@media screen and (min-height: 400px) {
-  .avatar {
-    width: 180px;
-    height: 180px;
+@media screen and (max-width: 750px) {
+  .level {
+    height: 50px;
+    width: 50px;
+    border: solid 4px #eeda00;
+  }
+}
+
+@media screen and (min-height: 600px) {
+  .avatar_pic {
+    top: 15%;
+  }
+
+  .enemy1,
+  .enemy2 {
+    max-width: 25%;
   }
 }
 
 @media screen and (min-height: 768px) {
-  .avatar {
-    width: 250px;
-    height: 250px;
-  }
-
-  .avatar img {
-    height: 300px;
-  }
-
-  .enemy1 {
-    height: 250px;
+  .avatar_pic {
     top: 30%;
+  }
+}
+
+@media screen and (min-height: 800px) {
+  .level {
+    height: 100px;
+    width: 100px;
   }
 }

@@ -99,3 +99,16 @@ body {
     font-size: 5vw;
   }
 }
+
+@media screen and (min-height: 600px) {
+  .avatar_card {
+    height: 65%;
+  }
+}
+
+@media screen and (min-height: 768px) {
+  .avatar {
+    height: 230px;
+    width: 230px;
+  }
+}

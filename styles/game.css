@@ -1,5 +1,6 @@
 body {
   font-weight: 800;
+  background-size: 100% 100%;
 }
 
 .warning {
@@ -228,33 +229,8 @@ body {
   top: 3%;
 }
 
-@media screen and (max-width: 600px) {
-  .enemy {
-    width: 70px;
-    height: 70px;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .enemy {
-    width: 80px;
-    height: 80px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .warning {
-    height: 60%;
-  }
-
-  .info img {
-    max-height: 80%;
-  }
-}
-
 @media screen and (min-height: 480px) {
-  .avatar,
-  .chosen {
+  .avatar {
     width: 150px;
     height: 150px;
   }
@@ -266,45 +242,14 @@ body {
     height: 60px;
   }
 
-  .warning {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-around;
-  }
-
-  .top {
-    height: 60%;
-  }
-
-  .bottom {
-    height: 15%;
-  }
-
   .enemy {
-    width: 120px;
-    height: 120px;
-  }
-}
-
-@media screen and (min-height: 600px) {
-  .warning {
-    height: 50%;
-  }
-
-  .avatar,
-  .chosen {
-    width: 210px;
-    height: 210px;
-  }
-
-  .warning .avatar {
-    margin-top: 50px;
+    width: 180px;
+    height: 180px;
   }
 
   .control,
   .balance_field,
   .cf,
-  .score_cont,
   .earned_cont {
     height: 8%;
   }
@@ -312,7 +257,19 @@ body {
 
 @media screen and (min-height: 800px) {
   .enemy {
-    width: 150px;
-    height: 150px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .chosen {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media screen and (min-height: 1000px) {
+  .enemy {
+    width: 250px;
+    height: 250px;
   }
 }
