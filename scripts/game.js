@@ -32,14 +32,6 @@ let audio = new Audio()
 audio.src = '../audio/game.mp3'
 audio.loop = true
 
-let harmIndex = 0
-let harmSounds = []
-for (let i = 0; i < 8; i++) {
-    let harmSound = new Audio()
-    harmSound.src = '../audio/harm.mp3'
-    harmSounds.push(harmSound)
-}
-
 document.querySelector('.avatar_name').innerHTML = avatarName
 
 let avatarPic = document.createElement('img')
@@ -107,17 +99,22 @@ volumeCont.onclick = () => {
     }
 }
 
-document.onclick = (ev) => {
+document.ontouchstart = (ev) => {
     if (!playing) { return }
 
-    tool.style.left = ev.clientX + 'px'
-    tool.style.top = ev.clientY - Math.round(tool.offsetHeight / 2) + 'px'
+    tool.style.left = ev.touches[0].clientX + 'px'
+    tool.style.top = ev.touches[0].clientY - Math.round(tool.offsetHeight / 2) + 'px'
 
     tool.classList.remove('hidden')
+}
 
-    setTimeout(() => {
-        tool.classList.add('hidden')
-    }, 100);
+document.ontouchmove = (ev) => {
+    tool.style.left = ev.touches[0].clientX + 'px'
+    tool.style.top = ev.touches[0].clientY - Math.round(tool.offsetHeight / 2) + 'px'
+}
+
+document.ontouchend = () => {
+    tool.classList.add('hidden')
 }
 
 function getEnemy() {
@@ -147,13 +144,6 @@ function getEnemy() {
 
     enemy.onclick = () => {
         if (!playing) { return }
-
-        if (volume && !dead) {
-            if (harmIndex == 8) { harmIndex = 0 }
-
-            harmSounds[harmIndex].play();
-            harmIndex++
-        }
 
         if (enemyHealth) {
             harm.classList.remove('hidden')
