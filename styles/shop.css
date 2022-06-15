@@ -113,4 +113,8 @@ body {
   .balance_field {
     width: 26%;
   }
+
+  .volume_cont {
+    right: 30%;
+  }
 }

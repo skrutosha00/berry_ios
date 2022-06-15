@@ -32,6 +32,9 @@ let audio = new Audio()
 audio.src = '../audio/game.mp3'
 audio.loop = true
 
+let harmSound = new Audio()
+harmSound.src = '../audio/harm.mp3'
+
 document.querySelector('.avatar_name').innerHTML = avatarName
 
 let avatarPic = document.createElement('img')
@@ -141,9 +144,8 @@ function getEnemy() {
         if (!playing) { return }
 
         if (volume) {
-            let harmSound = new Audio()
-            harmSound.src = '../audio/harm.mp3'
-            harmSound.play()
+            harmSound.currentTime = 0;
+            harmSound.play();
         }
 
         if (enemyHealth) {

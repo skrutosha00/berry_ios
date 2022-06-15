@@ -23,7 +23,7 @@ for (let i = 0; i < 4; i++) {
         level.classList.add('disabled')
     }
 
-    level.classList.add('level')
+    level.classList.add('level', 'block')
     level.innerHTML = i + 1
 
     level.onclick = () => {
