@@ -53,6 +53,11 @@ warningPic.classList.add('warning_pic')
 warningPic.src = '../png/avatar_' + localStorage.getItem('avatar_berry_ios') + '.png'
 warning.appendChild(warningPic)
 
+let tool = document.createElement('img')
+tool.src = '../png/' + localStorage.getItem('chosen_berry_ios') + '.png'
+tool.classList.add('tool', 'hidden')
+wrapper.appendChild(tool)
+
 let originalEnemy = document.createElement('div')
 originalEnemy.classList.add('enemy', 'block')
 
@@ -67,6 +72,12 @@ originalEnemy.append(enemyPic, harm)
 play()
 
 document.querySelector('.again').onclick = () => {
+    if (level < 4 && score) {
+        level++
+        localStorage.setItem('levels_berry_ios', localStorage.getItem('levels_berry_ios') + ',' + level)
+        document.querySelector('.level').innerHTML = 'Level ' + level
+    }
+
     warning.style.left = '-50%'
     score = 0
 
@@ -88,6 +99,19 @@ volumeCont.onclick = () => {
     }
 }
 
+document.onclick = (ev) => {
+    if (!playing) { return }
+
+    tool.style.left = ev.clientX + 'px'
+    tool.style.top = ev.clientY - Math.round(tool.offsetHeight / 2) + 'px'
+
+    tool.classList.remove('hidden')
+
+    setTimeout(() => {
+        tool.classList.add('hidden')
+    }, 100);
+}
+
 function getEnemy() {
     let enemy = originalEnemy.cloneNode(true)
     let harm = enemy.querySelector('.harm')
@@ -99,6 +123,7 @@ function getEnemy() {
     enemy.style.top = randInt(35, 55) + '%'
 
     let enemyHealth = level + 2
+    let dead = false
     let distance = 0
 
     let enemyInterval = setInterval(() => {
@@ -115,20 +140,35 @@ function getEnemy() {
     enemy.onclick = () => {
         if (!playing) { return }
 
-        harm.classList.remove('hidden')
+        if (volume) {
+            let harmSound = new Audio()
+            harmSound.src = '../audio/harm.mp3'
+            harmSound.play()
+        }
 
-        setTimeout(() => {
-            harm.classList.add('hidden')
-        }, 100);
+        if (enemyHealth) {
+            harm.classList.remove('hidden')
+            setTimeout(() => {
+                harm.classList.add('hidden')
+            }, 200);
 
-        enemyHealth -= 1
-        if (!enemyHealth) {
-            enemy.remove()
+            enemyHealth -= 1
+        } else {
+            if (!dead) {
+                enemy.querySelector('img').src = '../png/coins.gif'
+                dead = true
+                setTimeout(() => {
+                    enemy.remove()
+                }, 400);
+            }
+
             clearInterval(enemyInterval)
 
             score += 1
             document.querySelector('.earned').innerHTML = Math.round(score * cfData[localStorage.getItem('chosen_berry_ios')] * (1.25 + level * 0.25))
         }
+
+
     }
 }
 
@@ -156,6 +196,8 @@ function gameOver() {
 
     let prize = Math.round(score * cfData[localStorage.getItem('chosen_berry_ios')] * (1.25 + level * 0.25))
 
+    document.querySelector('.header').innerHTML = avatarName + (score ? ' winner' : ' lost this time')
+    document.querySelector('.again').innerHTML = (level < 4 && score > 3) ? 'NEXT' : 'RETRY'
     warning.querySelector('.amount_money').innerHTML = prize
 
     changeBalance(prize)

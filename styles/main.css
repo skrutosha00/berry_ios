@@ -68,6 +68,11 @@ body {
   border-radius: 12px;
 }
 
+.level.disabled {
+  border-color: #424242;
+  color: #3e3e3e;
+}
+
 .enemy1 {
   position: absolute;
   right: 28%;

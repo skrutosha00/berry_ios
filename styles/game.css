@@ -224,6 +224,15 @@ body {
   );
 }
 
+.tool {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+
+  max-width: 100px;
+  max-height: 100px;
+}
+
 .volume_cont {
   right: 52%;
   top: 3%;
@@ -259,6 +268,11 @@ body {
   .enemy {
     width: 210px;
     height: 210px;
+  }
+
+  .tool {
+    max-width: 140px;
+    max-height: 140px;
   }
 
   .chosen {

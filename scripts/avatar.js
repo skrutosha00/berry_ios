@@ -11,6 +11,10 @@ if (!localStorage.getItem('balance_berry_ios')) {
     localStorage.setItem('balance_berry_ios', 5000)
 }
 
+if (!localStorage.getItem('avatar_berry_ios')) {
+    localStorage.setItem('avatar_berry_ios', '1')
+}
+
 if (!localStorage.getItem('hammer_berry_ios')) {
     localStorage.setItem('hammer_berry_ios', 1)
 }
@@ -18,6 +22,11 @@ if (!localStorage.getItem('hammer_berry_ios')) {
 if (!localStorage.getItem('chosen_berry_ios')) {
     localStorage.setItem('chosen_berry_ios', 'hammer')
 }
+
+if (!localStorage.getItem('levels_berry_ios')) {
+    localStorage.setItem('levels_berry_ios', [1])
+}
+
 
 let volumeCont = document.querySelector('.volume_cont')
 
