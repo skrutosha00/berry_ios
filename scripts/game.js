@@ -32,8 +32,13 @@ let audio = new Audio()
 audio.src = '../audio/game.mp3'
 audio.loop = true
 
-let harmSound = new Audio()
-harmSound.src = '../audio/harm.mp3'
+let harmIndex = 0
+let harmSounds = []
+for (let i = 0; i < 8; i++) {
+    let harmSound = new Audio()
+    harmSound.src = '../audio/harm.mp3'
+    harmSounds.push(harmSound)
+}
 
 document.querySelector('.avatar_name').innerHTML = avatarName
 
@@ -143,9 +148,11 @@ function getEnemy() {
     enemy.onclick = () => {
         if (!playing) { return }
 
-        if (volume) {
-            harmSound.currentTime = 0;
-            harmSound.play();
+        if (volume && !dead) {
+            if (harmIndex == 8) { harmIndex = 0 }
+
+            harmSounds[harmIndex].play();
+            harmIndex++
         }
 
         if (enemyHealth) {
